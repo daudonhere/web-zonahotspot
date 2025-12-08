@@ -18,22 +18,32 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+        /* CSS untuk link navigasi aktif */
+        .nav-link.active {
+            color: #2563EB; /* Warna biru lebih gelap saat aktif */
+            font-weight: 600; /* Lebih tebal saat aktif */
+            border-bottom: 2px solid #2563EB; /* Garis bawah biru saat aktif */
+            padding-bottom: 4px;
+        }
     </style>
 </head>
 <body class="text-gray-800">
 
     <!-- Navbar -->
+    <!-- Navigasi telah disesuaikan dengan kelas 'nav-link' dan ID section yang relevan -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-blue-600">
                 Zona<span class="text-gray-900">Hotspot</span>
             </div>
             <nav class="hidden md:flex space-x-8">
-                <a href="#tentang" class="text-gray-600 hover:text-blue-600 transition duration-300">Tentang Kami</a>
-                <a href="#layanan" class="text-gray-600 hover:text-blue-600 transition duration-300">Layanan</a>
-                <a href="#install" class="text-gray-600 hover:text-blue-600 transition duration-300">Install App</a>
-                <a href="#area" class="text-gray-600 hover:text-blue-600 transition duration-300">Cakupan</a>
-                <a href="#testimoni" class="text-gray-600 hover:text-blue-600 transition duration-300">Testimoni</a>
+                <!-- Tambahkan kelas 'nav-link' dan atribut data-section untuk JS -->
+                <a href="#banner" data-section="banner" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Beranda</a>
+                <a href="#tentang" data-section="tentang" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Tentang Kami</a>
+                <a href="#layanan" data-section="layanan" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Layanan</a>
+                <a href="#install" data-section="install" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Install App</a>
+                <a href="#area" data-section="area" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Cakupan</a>
+                <a href="#testimoni" data-section="testimoni" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Testimoni</a>
             </nav>
             <a href="https://zonahotspot.vercel.app/" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition duration-300 shadow-lg">
                 Masuk/Daftar
@@ -43,6 +53,7 @@
 
     <main>
         <!-- 1. Banner (Hero Section) -->
+        <!-- ID section dipertahankan -->
         <section id="banner" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 sm:py-32">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight">
@@ -73,7 +84,7 @@
                     <div>
                         <!-- Placeholder Image -->
                         <div class="w-full h-64 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500 shadow-lg">
-                            
+                            [Image of Fiber Optic and Wireless Internet Infrastructure]
                         </div>
                     </div>
                 </div>
@@ -250,27 +261,77 @@
         </div>
     </footer>
 
-    <!-- JavaScript untuk Tombol Install PWA -->
+    <!-- JavaScript untuk Navigasi Aktif dan Tombol Install PWA -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const installButton = document.getElementById('install-pwa-button');
             const pwaUrl = 'https://zonahotspot.vercel.app/'; // Domain PWA Next.js Anda
+            const installButton = document.getElementById('install-pwa-button');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+            const sectionMap = {};
 
-            // Logika Sederhana: Hanya mengarahkan ke PWA URL
-            // Di URL PWA inilah prompt instalasi akan muncul jika PWA sudah dikonfigurasi
+            // 1. Logika Tombol Install PWA
             installButton.addEventListener('click', () => {
                 window.location.href = pwaUrl;
             });
 
-            // Opsional: Untuk smooth scrolling ke sections
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            // 2. Logika Smooth Scrolling
+            navLinks.forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
+                    // Hapus kelas 'active' dari semua link sebelum scroll
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    // Tambahkan kelas 'active' pada link yang diklik
+                    this.classList.add('active');
+                    
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
                 });
             });
+
+            // 3. Logika Intersection Observer untuk Navigasi Aktif
+            
+            // Atur opsi observer
+            // threshold: 0.6 artinya section dianggap "terlihat" jika 60% dari section sudah masuk viewport
+            const options = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.6 
+            };
+
+            // Callback saat terjadi perpotongan
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    const sectionId = entry.target.id;
+                    const link = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+                    
+                    if (!link) return; // Pastikan link ada
+
+                    if (entry.isIntersecting) {
+                        // Section sedang terlihat
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    } else {
+                        // Secara opsional, kita bisa menghapus kelas active saat keluar,
+                        // tetapi membiarkan observer lain yang aktif untuk mengambil alih.
+                        // link.classList.remove('active');
+                    }
+                });
+            }, options);
+
+            // Amati setiap section
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Set 'Beranda' aktif saat inisialisasi jika tidak ada yang lain yang aktif
+            // Ini memastikan ada link yang aktif saat halaman dimuat
+            const initialLink = document.querySelector('.nav-link[data-section="banner"]');
+            if (initialLink) {
+                initialLink.classList.add('active');
+            }
+
         });
     </script>
 
