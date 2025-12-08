@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona Hotspot - Internet Cepat, Harga Hemat</title>
+    <!-- Muat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Konfigurasi Font Inter -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        /* Styling tambahan untuk elemen interaktif */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600">
+                Zona<span class="text-gray-900">Hotspot</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#tentang" class="text-gray-600 hover:text-blue-600 transition duration-300">Tentang Kami</a>
+                <a href="#layanan" class="text-gray-600 hover:text-blue-600 transition duration-300">Layanan</a>
+                <a href="#install" class="text-gray-600 hover:text-blue-600 transition duration-300">Install App</a>
+                <a href="#area" class="text-gray-600 hover:text-blue-600 transition duration-300">Cakupan</a>
+                <a href="#testimoni" class="text-gray-600 hover:text-blue-600 transition duration-300">Testimoni</a>
+            </nav>
+            <a href="https://zonahotspot.vercel.app/" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition duration-300 shadow-lg">
+                Masuk/Daftar
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Banner (Hero Section) -->
+        <section id="banner" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 sm:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight">
+                    Internet Super Cepat, Harga Rakyat.
+                </h1>
+                <p class="text-xl sm:text-2xl mb-8 font-light">
+                    Nikmati koneksi stabil 24/7. Tanpa FUP, Tanpa Khawatir.
+                </p>
+                <a href="#install" class="inline-block bg-white text-blue-600 font-bold px-8 py-3 rounded-full text-lg hover:bg-blue-100 transition duration-300 shadow-xl transform hover:scale-105">
+                    Cek Area & Mulai Berlangganan
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. Tentang Kami -->
+        <section id="tentang" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-blue-600 font-semibold uppercase tracking-wider">Mengenal Kami Lebih Dekat</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mt-2">Penyedia Jasa Internet Terpercaya</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-lg space-y-4">
+                        <p>Zona Hotspot didirikan dengan visi untuk menyediakan akses internet berkecepatan tinggi yang dapat dijangkau oleh semua kalangan masyarakat, baik di perkotaan maupun pedesaan.</p>
+                        <p>Kami bangga menggunakan dua teknologi andalan: **Kabel Fiber Optik** untuk kecepatan dan stabilitas maksimal di area padat, dan **Jaringan Wireless** mutakhir untuk menjangkau lokasi-lokasi terpencil dengan biaya yang efisien.</p>
+                        <p class="font-semibold text-blue-600">Kami percaya, internet cepat adalah hak, bukan kemewahan.</p>
+                    </div>
+                    <div>
+                        <!-- Placeholder Image -->
+                        <div class="w-full h-64 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500 shadow-lg">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Layanan (Keunggulan) -->
+        <section id="layanan" class="py-16 sm:py-24 bg-blue-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-blue-600 font-semibold uppercase tracking-wider">Mengapa Memilih Kami?</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mt-2">Keunggulan Zona Hotspot</h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Kartu 1: Fiber Optik -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300">
+                        <div class="text-blue-500 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Fiber Optik Ultra Cepat</h3>
+                        <p class="text-gray-600 text-sm">Teknologi kabel optik terbaru untuk stabilitas, *latency* rendah, dan kecepatan unduh/unggah simetris.</p>
+                    </div>
+
+                    <!-- Kartu 2: Wireless -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300">
+                        <div class="text-blue-500 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9.247a1 1 1 0 011.008.01l2.01 1.608a1 1 0 001.272 0l2.01-1.608a1 1 0 011.008-.01M12 14v5m-4 0h8m-4-5l-4 4m8-4l-4 4" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Jangkauan Wireless Luas</h3>
+                        <p class="text-gray-600 text-sm">Solusi nirkabel untuk area yang sulit dijangkau, memastikan semua orang mendapatkan koneksi.</p>
+                    </div>
+
+                    <!-- Kartu 3: Harga Murah -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300">
+                        <div class="text-blue-500 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c-1.11 0-2-.448-2-1 0-.552.89-1 2-1s2 .448 2 1c0 .552-.89 1-2 1z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Sangat Terjangkau</h3>
+                        <p class="text-gray-600 text-sm">Paket mulai dari 100 Ribuan. Kami berkomitmen menyediakan harga termurah tanpa mengorbankan kualitas.</p>
+                    </div>
+
+                    <!-- Kartu 4: Tanpa FUP -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300">
+                        <div class="text-blue-500 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Bebas Batasan Kuota</h3>
+                        <p class="text-gray-600 text-sm">Nikmati internet tanpa batas FUP (Fair Usage Policy). *Streaming*, *gaming*, dan kerja tanpa hambatan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Install App (PWA Prompt Trigger) -->
+        <section id="install" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">Kelola Langganan Anda Dengan Mudah</h2>
+                    <p class="text-xl text-gray-600 mb-8">Instal Aplikasi Web Kami (PWA) untuk cek tagihan, bayar, dan hubungi bantuan dalam satu ketukan.</p>
+
+                    <!-- Tombol Utama yang Mengarahkan ke PWA Next.js -->
+                    <button id="install-pwa-button" class="bg-blue-600 text-white font-bold px-10 py-4 rounded-xl text-xl hover:bg-blue-700 transition duration-300 shadow-2xl transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        📥 INSTALL APLIKASI ZONAHOTSPOT
+                    </button>
+                    <p class="text-sm mt-4 text-gray-500">Anda akan diarahkan ke <span class="font-mono">zonahotspot.vercel.app</span> untuk memulai instalasi PWA.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Area Cakupan -->
+        <section id="area" class="py-16 sm:py-24 bg-blue-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-blue-600 font-semibold uppercase tracking-wider">Jangkauan Kami</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mt-2">Ribuan Rumah Telah Terkoneksi</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 bg-white rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-blue-600">Jawa Barat</h3>
+                        <p class="text-gray-600 mt-2">Cakupan Fiber Optik dan Wireless di berbagai kota dan kabupaten.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-blue-600">Jawa Tengah</h3>
+                        <p class="text-gray-600 mt-2">Perluasan jaringan sedang dilakukan. Cek ketersediaan via aplikasi!</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-blue-600">Luar Jawa</h3>
+                        <p class="text-gray-600 mt-2">Melayani permintaan korporat dan perkantoran di pulau Sumatera dan Kalimantan.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <p class="text-lg text-gray-700">Tidak yakin apakah area Anda tercakup? Hubungi kami sekarang!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Testimoni -->
+        <section id="testimoni" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-blue-600 font-semibold uppercase tracking-wider">Kata Mereka</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mt-2">Apa Kata Pelanggan Kami?</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Testimoni 1 -->
+                    <div class="p-6 bg-blue-50 rounded-xl shadow-md border-t-4 border-blue-600">
+                        <p class="italic text-gray-700">"Sangat terkejut dengan harganya yang murah tapi kecepatannya setara dengan provider besar. Cocok untuk kerja WFH dan *gaming* anak."</p>
+                        <p class="mt-4 font-semibold text-gray-800">- Bpk. Hendra S.</p>
+                        <p class="text-sm text-gray-500">PNS, Bandung</p>
+                    </div>
+
+                    <!-- Testimoni 2 -->
+                    <div class="p-6 bg-blue-50 rounded-xl shadow-md border-t-4 border-blue-600">
+                        <p class="italic text-gray-700">"Pemasangan cepat, sinyal *wireless*-nya kuat sampai ke lantai dua rumah. *Customer service*-nya juga responsif sekali, sangat direkomendasikan."</p>
+                        <p class="mt-4 font-semibold text-gray-800">- Ibu Fitri D.</p>
+                        <p class="text-sm text-gray-500">Pemilik Toko Online, Semarang</p>
+                    </div>
+
+                    <!-- Testimoni 3 -->
+                    <div class="p-6 bg-blue-50 rounded-xl shadow-md border-t-4 border-blue-600">
+                        <p class="italic text-gray-700">"Bebas FUP adalah kuncinya! Saya sering *upload* video besar dan tidak pernah merasakan kecepatan yang turun. Koneksi stabil 99%."</p>
+                        <p class="mt-4 font-semibold text-gray-800">- Riki G.</p>
+                        <p class="text-sm text-gray-500">Content Creator, Jakarta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 7. Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-blue-400">ZonaHotspot</h4>
+                    <p class="text-sm text-gray-400">Penyedia internet tercepat dan termurah di Indonesia. Koneksi untuk semua.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Layanan</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#layanan" class="hover:text-blue-400 transition duration-300">Fiber Optik</a></li>
+                        <li><a href="#layanan" class="hover:text-blue-400 transition duration-300">Wireless Internet</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Cek Tagihan</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Perusahaan</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#tentang" class="hover:text-blue-400 transition duration-300">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Karir</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                    <p class="text-sm text-gray-400">Email: support@zonahotspot.com</p>
+                    <p class="text-sm text-gray-400">Telp: (021) 1234 5678</p>
+                    <p class="text-sm text-gray-400 mt-4">Jl. Teknologi No. 1, Jakarta</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                &copy; 2025 ZonaHotspot. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Tombol Install PWA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const installButton = document.getElementById('install-pwa-button');
+            const pwaUrl = 'https://zonahotspot.vercel.app/'; // Domain PWA Next.js Anda
+
+            // Logika Sederhana: Hanya mengarahkan ke PWA URL
+            // Di URL PWA inilah prompt instalasi akan muncul jika PWA sudah dikonfigurasi
+            installButton.addEventListener('click', () => {
+                window.location.href = pwaUrl;
+            });
+
+            // Opsional: Untuk smooth scrolling ke sections
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
