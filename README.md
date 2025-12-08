@@ -1,2 +1,2 @@
 # web-zonahotspot
-simple landing page for zonahotspot internet resller
+simple landing page for zonahotspot internet reseller
