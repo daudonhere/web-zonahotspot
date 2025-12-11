@@ -1,338 +1,708 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zona Hotspot - Internet Cepat, Harga Hemat</title>
-    <!-- Muat Tailwind CSS -->
+    <title>ZonaHotspot - Layanan Internet Cepat</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Konfigurasi Font Inter -->
+    
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#DC2626', // Red 600
+                        dark: '#111827',    // Gray 900
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fc;
+        /* Custom Utilities */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
         }
-        /* Styling tambahan untuk elemen interaktif */
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        
+        /* Animation Utility */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
         }
-        /* CSS untuk link navigasi aktif */
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Active Nav Link Style */
         .nav-link.active {
-            color: #2563EB; /* Warna biru lebih gelap saat aktif */
-            font-weight: 600; /* Lebih tebal saat aktif */
-            border-bottom: 2px solid #2563EB; /* Garis bawah biru saat aktif */
-            padding-bottom: 4px;
+            color: #DC2626;
+            font-weight: 600;
+        }
+        
+        /* Banner Text Shadow */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="font-sans text-gray-800 bg-white antialiased">
 
-    <!-- Navbar -->
-    <!-- Navigasi telah disesuaikan dengan kelas 'nav-link' dan ID section yang relevan -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-blue-600">
-                Zona<span class="text-gray-900">Hotspot</span>
-            </div>
-            <nav class="hidden md:flex space-x-8">
-                <!-- Tambahkan kelas 'nav-link' dan atribut data-section untuk JS -->
-                <a href="#banner" data-section="banner" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Beranda</a>
-                <a href="#tentang" data-section="tentang" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Tentang Kami</a>
-                <a href="#layanan" data-section="layanan" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Layanan</a>
-                <a href="#install" data-section="install" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Install App</a>
-                <a href="#area" data-section="area" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Cakupan</a>
-                <a href="#testimoni" data-section="testimoni" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Testimoni</a>
-            </nav>
-            <a href="https://zonahotspot.vercel.app/" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition duration-300 shadow-lg">
-                Masuk/Daftar
-            </a>
-        </div>
-    </header>
-
-    <main>
-        <!-- 1. Banner (Hero Section) -->
-        <!-- ID section dipertahankan -->
-        <section id="banner" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 sm:py-32">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight">
-                    Internet Super Cepat, Harga Rakyat.
-                </h1>
-                <p class="text-xl sm:text-2xl mb-8 font-light">
-                    Nikmati koneksi stabil 24/7. Tanpa FUP, Tanpa Khawatir.
-                </p>
-                <a href="#install" class="inline-block bg-white text-blue-600 font-bold px-8 py-3 rounded-full text-lg hover:bg-blue-100 transition duration-300 shadow-xl transform hover:scale-105">
-                    Cek Area & Mulai Berlangganan
-                </a>
-            </div>
-        </section>
-
-        <!-- 2. Tentang Kami -->
-        <section id="tentang" class="py-16 sm:py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <span class="text-blue-600 font-semibold uppercase tracking-wider">Mengenal Kami Lebih Dekat</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold mt-2">Penyedia Jasa Internet Terpercaya</h2>
-                </div>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="text-lg space-y-4">
-                        <p>Zona Hotspot didirikan dengan visi untuk menyediakan akses internet berkecepatan tinggi yang dapat dijangkau oleh semua kalangan masyarakat, baik di perkotaan maupun pedesaan.</p>
-                        <p>Kami bangga menggunakan dua teknologi andalan: **Kabel Fiber Optik** untuk kecepatan dan stabilitas maksimal di area padat, dan **Jaringan Wireless** mutakhir untuk menjangkau lokasi-lokasi terpencil dengan biaya yang efisien.</p>
-                        <p class="font-semibold text-blue-600">Kami percaya, internet cepat adalah hak, bukan kemewahan.</p>
+    <!-- 1. TOPBAR -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                        <i class="fa-solid fa-wifi"></i>
                     </div>
-                    <div>
-                        <!-- Placeholder Image -->
-                        <div class="w-full h-64 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500 shadow-lg">
-                            [Image of Fiber Optic and Wireless Internet Infrastructure]
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Layanan (Keunggulan) -->
-        <section id="layanan" class="py-16 sm:py-24 bg-blue-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <span class="text-blue-600 font-semibold uppercase tracking-wider">Mengapa Memilih Kami?</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold mt-2">Keunggulan Zona Hotspot</h2>
+                    <span class="font-bold text-2xl tracking-tighter text-dark">zona<span class="text-primary">hotspot</span></span>
                 </div>
 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Kartu 1: Fiber Optik -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300">
-                        <div class="text-blue-500 mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Fiber Optik Ultra Cepat</h3>
-                        <p class="text-gray-600 text-sm">Teknologi kabel optik terbaru untuk stabilitas, *latency* rendah, dan kecepatan unduh/unggah simetris.</p>
-                    </div>
-
-                    <!-- Kartu 2: Wireless -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300">
-                        <div class="text-blue-500 mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9.247a1 1 1 0 011.008.01l2.01 1.608a1 1 0 001.272 0l2.01-1.608a1 1 0 011.008-.01M12 14v5m-4 0h8m-4-5l-4 4m8-4l-4 4" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Jangkauan Wireless Luas</h3>
-                        <p class="text-gray-600 text-sm">Solusi nirkabel untuk area yang sulit dijangkau, memastikan semua orang mendapatkan koneksi.</p>
-                    </div>
-
-                    <!-- Kartu 3: Harga Murah -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300">
-                        <div class="text-blue-500 mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c-1.11 0-2-.448-2-1 0-.552.89-1 2-1s2 .448 2 1c0 .552-.89 1-2 1z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Sangat Terjangkau</h3>
-                        <p class="text-gray-600 text-sm">Paket mulai dari 100 Ribuan. Kami berkomitmen menyediakan harga termurah tanpa mengorbankan kualitas.</p>
-                    </div>
-
-                    <!-- Kartu 4: Tanpa FUP -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover transition duration-300">
-                        <div class="text-blue-500 mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Bebas Batasan Kuota</h3>
-                        <p class="text-gray-600 text-sm">Nikmati internet tanpa batas FUP (Fair Usage Policy). *Streaming*, *gaming*, dan kerja tanpa hambatan.</p>
-                    </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#beranda" class="nav-link text-gray-600 hover:text-primary transition-colors duration-300">Beranda</a>
+                    <a href="#paket" class="nav-link text-gray-600 hover:text-primary transition-colors duration-300">Paket</a>
+                    <a href="#fitur" class="nav-link text-gray-600 hover:text-primary transition-colors duration-300">Fitur / Layanan</a>
+                    <a href="#tentang" class="nav-link text-gray-600 hover:text-primary transition-colors duration-300">Tentang Kami</a>
+                    <a href="#kontak" class="nav-link text-gray-600 hover:text-primary transition-colors duration-300">Kontak</a>
+                    <a href="https://app.zonahotspot.net" target="_blank" class="bg-primary hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg shadow-red-500/30">
+                        Daftar
+                    </a>
                 </div>
-            </div>
-        </section>
 
-        <!-- 4. Install App (PWA Prompt Trigger) -->
-        <section id="install" class="py-16 sm:py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">Kelola Langganan Anda Dengan Mudah</h2>
-                    <p class="text-xl text-gray-600 mb-8">Instal Aplikasi Web Kami (PWA) untuk cek tagihan, bayar, dan hubungi bantuan dalam satu ketukan.</p>
-
-                    <!-- Tombol Utama yang Mengarahkan ke PWA Next.js -->
-                    <button id="install-pwa-button" class="bg-blue-600 text-white font-bold px-10 py-4 rounded-xl text-xl hover:bg-blue-700 transition duration-300 shadow-2xl transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                        INSTALL APLIKASI ZONAHOTSPOT
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 5. Area Cakupan -->
-        <section id="area" class="py-16 sm:py-24 bg-blue-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <span class="text-blue-600 font-semibold uppercase tracking-wider">Jangkauan Kami</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold mt-2">Ribuan Rumah Telah Terkoneksi</h2>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
+                <a href="#beranda" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Beranda</a>
+                <a href="#paket" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Paket</a>
+                <a href="#fitur" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Fitur</a>
+                <a href="#tentang" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Tentang</a>
+                <a href="#kontak" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Kontak</a>
+                <a href="https://app.zonahotspot.net" class="block w-full text-center mt-4 bg-primary text-white px-4 py-3 rounded-lg font-bold">Daftar Sekarang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. BANNER (CANVAS ANIMATION) -->
+    <section id="beranda" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
+        <!-- Canvas Background -->
+        <canvas id="networkCanvas" class="absolute inset-0 z-0"></canvas>
+        
+        <!-- Overlay Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-white z-10 pointer-events-none"></div>
+
+        <div class="relative z-20 container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="inline-block px-4 py-1.5 rounded-full border border-red-500/50 bg-red-900/20 text-red-400 text-sm font-medium mb-4 animate-pulse">
+                    <i class="fa-solid fa-circle text-[8px] mr-2 mb-0.5"></i>Jaringan Stabil & Luas
                 </div>
-                <div class="grid md:grid-cols-3 gap-8 text-center">
-                    <div class="p-6 bg-white rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-bold text-blue-600">Jawa Barat</h3>
-                        <p class="text-gray-600 mt-2">Cakupan Fiber Optik dan Wireless di berbagai kota dan kabupaten.</p>
-                    </div>
-                    <div class="p-6 bg-white rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-bold text-blue-600">Jawa Tengah</h3>
-                        <p class="text-gray-600 mt-2">Perluasan jaringan sedang dilakukan. Cek ketersediaan via aplikasi!</p>
-                    </div>
-                    <div class="p-6 bg-white rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-bold text-blue-600">Luar Jawa</h3>
-                        <p class="text-gray-600 mt-2">Melayani permintaan korporat dan perkantoran di pulau Sumatera dan Kalimantan.</p>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                    Koneksi Tanpa Batas <br>
+                    <span class="text-primary text-glow">ZonaHotspot</span>
+                </h1>
+
+                <!-- Text Carousel -->
+                <div class="h-12 overflow-hidden relative">
+                    <div id="hero-carousel" class="transition-transform duration-500 ease-in-out">
+                        <p class="text-xl md:text-2xl text-gray-300">Internet Cepat Untuk Keluarga</p>
+                        <p class="text-xl md:text-2xl text-gray-300">Stabil Untuk Gaming & Streaming</p>
+                        <p class="text-xl md:text-2xl text-gray-300">Solusi Bisnis & UMKM</p>
                     </div>
                 </div>
-                <div class="text-center mt-12">
-                    <p class="text-lg text-gray-700">Tidak yakin apakah area Anda tercakup? Hubungi kami sekarang!</p>
+
+                <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#paket" class="px-8 py-4 bg-primary hover:bg-red-700 text-white rounded-full font-bold text-lg shadow-lg shadow-red-600/40 transition-all hover:scale-105">
+                        Lihat Paket
+                    </a>
+                    <a href="#area" class="px-8 py-4 bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-dark rounded-full font-bold text-lg transition-all hover:scale-105 backdrop-blur-sm">
+                        Cek Area
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 6. Testimoni -->
-        <section id="testimoni" class="py-16 sm:py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <span class="text-blue-600 font-semibold uppercase tracking-wider">Kata Mereka</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold mt-2">Apa Kata Pelanggan Kami?</h2>
+    <!-- 3. AREA CHECKER -->
+    <section id="area" class="py-20 bg-primary relative">
+        <!-- Decoration Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto text-center transform -translate-y-10 md:-translate-y-0">
+                <h2 class="text-3xl font-bold text-dark mb-2">Cek Ketersediaan Area</h2>
+                <p class="text-gray-500 mb-8">Apakah lokasi Anda sudah tercover jaringan kami?</p>
+                
+                <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                    <div class="relative w-full md:w-2/3 text-left">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-primary">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <select id="area-select" class="block w-full pl-10 pr-4 py-4 text-base border-2 border-gray-200 focus:outline-none focus:border-primary focus:ring-primary rounded-xl appearance-none bg-gray-50 transition-colors cursor-pointer">
+                            <option value="" disabled selected>Pilih Kecamatan Anda</option>
+                            <option value="Cianjur">Kec. Cianjur</option>
+                            <option value="Cibeber">Kec. Cibeber</option>
+                            <option value="Cilaku">Kec. Cilaku</option>
+                            <option value="Campaka">Kec. Campaka</option>
+                            <option value="Sukanagara">Kec. Sukanagara</option>
+                            <option value="Pagelaran">Kec. Pagelaran</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </div>
+                    </div>
+                    <button onclick="checkArea()" class="w-full md:w-auto px-8 py-4 bg-dark text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Cek via WhatsApp
+                    </button>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Testimoni 1 -->
-                    <div class="p-6 bg-blue-50 rounded-xl shadow-md border-t-4 border-blue-600">
-                        <p class="italic text-gray-700">"Sangat terkejut dengan harganya yang murah tapi kecepatannya setara dengan provider besar. Cocok untuk kerja WFH dan *gaming* anak."</p>
-                        <p class="mt-4 font-semibold text-gray-800">- Bpk. Hendra S.</p>
-                        <p class="text-sm text-gray-500">PNS, Bandung</p>
-                    </div>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Testimoni 2 -->
-                    <div class="p-6 bg-blue-50 rounded-xl shadow-md border-t-4 border-blue-600">
-                        <p class="italic text-gray-700">"Pemasangan cepat, sinyal *wireless*-nya kuat sampai ke lantai dua rumah. *Customer service*-nya juga responsif sekali, sangat direkomendasikan."</p>
-                        <p class="mt-4 font-semibold text-gray-800">- Ibu Fitri D.</p>
-                        <p class="text-sm text-gray-500">Pemilik Toko Online, Semarang</p>
-                    </div>
+    <!-- 4. PACKAGES -->
+    <section id="paket" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm">Pilihan Terbaik</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mt-2">Paket Internet Super Cepat</h2>
+                <div class="w-20 h-1.5 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
 
-                    <!-- Testimoni 3 -->
-                    <div class="p-6 bg-blue-50 rounded-xl shadow-md border-t-4 border-blue-600">
-                        <p class="italic text-gray-700">"Bebas FUP adalah kuncinya! Saya sering *upload* video besar dan tidak pernah merasakan kecepatan yang turun. Koneksi stabil 99%."</p>
-                        <p class="mt-4 font-semibold text-gray-800">- Riki G.</p>
-                        <p class="text-sm text-gray-500">Content Creator, Jakarta</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-bl-lg">STARTER</div>
+                    <h3 class="text-xl font-bold text-dark mb-4">Home 50</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">50</span>
+                        <span class="text-gray-500 font-medium">Mbps</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Unlimited Kuota</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Ideal untuk 1-4 Perangkat</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Streaming HD Lancar</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Support 24/7</li>
+                    </ul>
+                    <div class="text-center mb-6">
+                        <span class="text-lg font-bold">Rp 150.000</span><span class="text-xs text-gray-500">/bulan</span>
+                    </div>
+                    <button onclick="orderPackage('Home 50 Mbps')" class="w-full py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-colors">
+                        Pilih Paket
+                    </button>
+                </div>
+
+                <!-- Card 2 (Popular) -->
+                <div class="bg-dark rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-dark flex flex-col relative overflow-hidden transform scale-105 z-10">
+                    <div class="absolute top-0 w-full left-0 bg-primary text-white text-xs font-bold py-1 text-center">PALING LARIS</div>
+                    <h3 class="text-xl font-bold text-white mb-4 mt-4">Family 75</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">75</span>
+                        <span class="text-gray-400 font-medium">Mbps</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-primary"></i> Unlimited Kuota</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-primary"></i> Ideal untuk 5-7 Perangkat</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-primary"></i> Gaming Low Latency</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-primary"></i> Prioritas Support</li>
+                    </ul>
+                    <div class="text-center mb-6 text-white">
+                        <span class="text-lg font-bold">Rp 225.000</span><span class="text-xs text-gray-400">/bulan</span>
+                    </div>
+                    <button onclick="orderPackage('Family 75 Mbps')" class="w-full py-3 bg-primary text-white font-bold rounded-xl hover:bg-red-700 transition-colors shadow-lg shadow-red-900/50">
+                        Pilih Paket
+                    </button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 flex flex-col relative overflow-hidden group">
+                    <h3 class="text-xl font-bold text-dark mb-4">Pro 90</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">90</span>
+                        <span class="text-gray-500 font-medium">Mbps</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Unlimited Kuota</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Ideal untuk SOHO / Kantor</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Upload Cepat</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> IP Public Dynamic</li>
+                    </ul>
+                    <div class="text-center mb-6">
+                        <span class="text-lg font-bold">Rp 300.000</span><span class="text-xs text-gray-500">/bulan</span>
+                    </div>
+                    <button onclick="orderPackage('Pro 90 Mbps')" class="w-full py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-colors">
+                        Pilih Paket
+                    </button>
+                </div>
+
+                 <!-- Card 4 -->
+                 <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 flex flex-col relative overflow-hidden group">
+                    <h3 class="text-xl font-bold text-dark mb-4">Ultra 100</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">100</span>
+                        <span class="text-gray-500 font-medium">Mbps</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Unlimited Kuota</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Streaming 4K Multi Device</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Kecepatan Maksimal</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> VIP Support</li>
+                    </ul>
+                    <div class="text-center mb-6">
+                        <span class="text-lg font-bold">Rp 350.000</span><span class="text-xs text-gray-500">/bulan</span>
+                    </div>
+                    <button onclick="orderPackage('Ultra 100 Mbps')" class="w-full py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-colors">
+                        Pilih Paket
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ABOUT -->
+    <section id="tentang" class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-red-100 rounded-full blur-3xl opacity-50"></div>
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-black/10 rounded-full blur-3xl opacity-50"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <!-- Placeholder Image -->
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bbc7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tim ZonaHotspot" class="w-full h-auto object-cover transform hover:scale-105 transition-duration-700">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+                            <p class="font-bold text-lg">Menghubungkan Pelosok Negeri</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-bold text-dark mb-6">Mengenal <span class="text-primary">ZonaHotspot</span></h2>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                        Kami adalah penyedia layanan internet yang berkomitmen untuk meratakan akses digital. Berbeda dengan provider lain yang hanya fokus di perkotaan, ZonaHotspot hadir dengan misi mulia: <strong>Menjangkau yang tak terjangkau.</strong>
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-8 text-lg">
+                        Dengan infrastruktur mandiri yang handal dan harga yang sangat terjangkau, kami memastikan masyarakat di daerah pelosok, desa, hingga kecamatan dapat menikmati akses informasi global tanpa hambatan. Internet bukan lagi barang mewah, tapi hak semua orang.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border-l-4 border-primary pl-4">
+                            <h4 class="font-bold text-2xl text-dark">5+</h4>
+                            <p class="text-sm text-gray-500">Kecamatan Tercover</p>
+                        </div>
+                        <div class="border-l-4 border-dark pl-4">
+                            <h4 class="font-bold text-2xl text-dark">1000+</h4>
+                            <p class="text-sm text-gray-500">Pelanggan Puas</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
+    <!-- 6. FEATURES -->
+    <section id="fitur" class="py-24 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm">Kenapa Kami?</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2">Keunggulan Layanan</h2>
+                <div class="w-20 h-1.5 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
 
-    <!-- 7. Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h4 class="text-xl font-bold mb-4 text-blue-400">ZonaHotspot</h4>
-                    <p class="text-sm text-gray-400">Penyedia internet tercepat dan termurah di Indonesia. Koneksi untuk semua.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-primary transition-colors group">
+                    <div class="w-14 h-14 bg-gray-700 rounded-lg flex items-center justify-center text-primary text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fiber Optic</h3>
+                    <p class="text-gray-400">Teknologi serat optik terbaru menjamin kestabilan koneksi di segala cuaca.</p>
                 </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-primary transition-colors group">
+                    <div class="w-14 h-14 bg-gray-700 rounded-lg flex items-center justify-center text-primary text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i class="fa-solid fa-infinity"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Unlimited Kuota</h3>
+                    <p class="text-gray-400">Bebas browsing, streaming, dan download tanpa batasan FUP (Fair Usage Policy).</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-primary transition-colors group">
+                    <div class="w-14 h-14 bg-gray-700 rounded-lg flex items-center justify-center text-primary text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Keamanan Terjaga</h3>
+                    <p class="text-gray-400">Fitur keamanan jaringan untuk melindungi data privasi keluarga Anda.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-primary transition-colors group">
+                    <div class="w-14 h-14 bg-gray-700 rounded-lg flex items-center justify-center text-primary text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Koneksi Cepat</h3>
+                    <p class="text-gray-400">Latensi rendah sangat cocok untuk meeting online dan game kompetitif.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-primary transition-colors group">
+                    <div class="w-14 h-14 bg-gray-700 rounded-lg flex items-center justify-center text-primary text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i class="fa-solid fa-tag"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Harga Murah</h3>
+                    <p class="text-gray-400">Paket ekonomis yang ramah di kantong tanpa mengurangi kualitas layanan.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-primary transition-colors group">
+                    <div class="w-14 h-14 bg-gray-700 rounded-lg flex items-center justify-center text-primary text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Customer Service</h3>
+                    <p class="text-gray-400">Tim support responsif siap membantu kendala Anda via WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. TESTIMONIALS -->
+    <section id="testimoni" class="py-24 bg-white relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-dark mb-16">Apa Kata Mereka?</h2>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <div class="overflow-hidden" id="testimonial-container">
+                    <!-- Slide Container -->
+                    <div id="testimonial-slider" class="flex transition-transform duration-500 ease-out">
+                        
+                        <!-- Item 1 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-gray-50 p-8 rounded-2xl text-center border border-gray-100 relative">
+                                <i class="fa-solid fa-quote-left text-4xl text-primary/20 absolute top-4 left-6"></i>
+                                <p class="text-gray-600 text-lg italic mb-6 relative z-10">"Akhirnya masuk juga internet di desa kami. Terima kasih ZonaHotspot, anak saya jadi gampang ngerjain tugas sekolah online."</p>
+                                <div class="flex items-center justify-center gap-4">
+                                    <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                        <img src="https://ui-avatars.com/api/?name=Asep+S&background=random" alt="User">
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="font-bold text-dark">Kang Asep</h5>
+                                        <p class="text-xs text-gray-500">Warga Cibeber</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-gray-50 p-8 rounded-2xl text-center border border-gray-100 relative">
+                                <i class="fa-solid fa-quote-left text-4xl text-primary/20 absolute top-4 left-6"></i>
+                                <p class="text-gray-600 text-lg italic mb-6 relative z-10">"Buat main game ping-nya stabil banget, jarang RTO. Harganya juga mahasiswa banget."</p>
+                                <div class="flex items-center justify-center gap-4">
+                                    <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                        <img src="https://ui-avatars.com/api/?name=Dian+R&background=random" alt="User">
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="font-bold text-dark">Dian R</h5>
+                                        <p class="text-xs text-gray-500">Gamer, Cianjur</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Item 3 -->
+                         <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-gray-50 p-8 rounded-2xl text-center border border-gray-100 relative">
+                                <i class="fa-solid fa-quote-left text-4xl text-primary/20 absolute top-4 left-6"></i>
+                                <p class="text-gray-600 text-lg italic mb-6 relative z-10">"Pelayanan CS-nya ramah, pas ada gangguan dikabarin dan cepet benerinnya. Recommended!"</p>
+                                <div class="flex items-center justify-center gap-4">
+                                    <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                        <img src="https://ui-avatars.com/api/?name=Siti+M&background=random" alt="User">
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="font-bold text-dark">Teh Siti</h5>
+                                        <p class="text-xs text-gray-500">Pemilik UMKM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button onclick="prevSlide()" class="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 bg-white text-dark w-10 h-10 rounded-full shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 bg-white text-dark w-10 h-10 rounded-full shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer class="bg-dark text-white pt-20 pb-10 border-t border-gray-800" id="kontak">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Info -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Layanan</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#layanan" class="hover:text-blue-400 transition duration-300">Fiber Optik</a></li>
-                        <li><a href="#layanan" class="hover:text-blue-400 transition duration-300">Wireless Internet</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Cek Tagihan</a></li>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white text-sm font-bold">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tighter">zona<span class="text-primary">hotspot</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Penyedia layanan internet terpercaya yang fokus membangun infrastruktur digital hingga ke pelosok daerah dengan harga terjangkau.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white">Tautan Cepat</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#beranda" class="hover:text-primary transition-colors">Beranda</a></li>
+                        <li><a href="#paket" class="hover:text-primary transition-colors">Daftar Paket</a></li>
+                        <li><a href="#area" class="hover:text-primary transition-colors">Cek Area</a></li>
+                        <li><a href="https://app.zonahotspot.net" class="hover:text-primary transition-colors">Member Area</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Perusahaan</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#tentang" class="hover:text-blue-400 transition duration-300">Tentang Kami</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Karir</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Hubungi Kami</a></li>
+
+                 <!-- T&C -->
+                 <div>
+                    <h4 class="font-bold text-lg mb-6 text-white">Dukungan</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Panduan Pembayaran</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Lapor Gangguan</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
-                    <p class="text-sm text-gray-400">Email: support@zonahotspot.com</p>
-                    <p class="text-sm text-gray-400">Telp: (021) 1234 5678</p>
-                    <p class="text-sm text-gray-400 mt-4">Jl. Teknologi No. 1, Jakarta</p>
+                    <h4 class="font-bold text-lg mb-6 text-white">Hubungi Kami</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-primary"></i>
+                            <span>Jl. Raya Cianjur Selatan No. 123,<br>Cianjur, Jawa Barat</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-primary"></i>
+                            <span>+62 813-8914-190</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-primary"></i>
+                            <span>support@zonahotspot.net</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-                &copy; 2025 ZonaHotspot. Hak Cipta Dilindungi.
+
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 ZonaHotspot. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript untuk Navigasi Aktif dan Tombol Install PWA -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pwaUrl = 'https://zonahotspot.vercel.app/'; // Domain PWA Next.js Anda
-            const installButton = document.getElementById('install-pwa-button');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('main section');
-            const sectionMap = {};
+        // --- 1. Canvas Network Animation ---
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
 
-            // 1. Logika Tombol Install PWA
-            installButton.addEventListener('click', () => {
-                window.location.href = pwaUrl;
-            });
+        // Resize handling
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
 
-            // 2. Logika Smooth Scrolling
-            navLinks.forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    // Hapus kelas 'active' dari semua link sebelum scroll
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    // Tambahkan kelas 'active' pada link yang diklik
-                    this.classList.add('active');
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
+        // Particle class
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 1.5; // Velocity X
+                this.vy = (Math.random() - 0.5) * 1.5; // Velocity Y
+                this.size = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                // Bounce off edges
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(220, 38, 38, 0.7)'; // Red particles
+                ctx.fill();
+            }
+        }
 
-            // 3. Logika Intersection Observer untuk Navigasi Aktif
+        // Init Particles
+        function initParticles() {
+            particles = [];
+            const particleCount = window.innerWidth < 768 ? 40 : 80;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        // Animation Loop
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
             
-            // Atur opsi observer
-            // threshold: 0.6 artinya section dianggap "terlihat" jika 60% dari section sudah masuk viewport
-            const options = {
-                root: null, // viewport
-                rootMargin: '0px',
-                threshold: 0.6 
-            };
-
-            // Callback saat terjadi perpotongan
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    const sectionId = entry.target.id;
-                    const link = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+            // Draw connections
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
                     
-                    if (!link) return; // Pastikan link ada
-
-                    if (entry.isIntersecting) {
-                        // Section sedang terlihat
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
-                    } else {
-                        // Secara opsional, kita bisa menghapus kelas active saat keluar,
-                        // tetapi membiarkan observer lain yang aktif untuk mengambil alih.
-                        // link.classList.remove('active');
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(220, 38, 38, ${1 - distance/150})`; // Fading red lines
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
                     }
-                });
-            }, options);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
 
-            // Amati setiap section
-            sections.forEach(section => {
-                observer.observe(section);
-            });
+        // --- 2. WhatsApp Logic ---
+        const waNumber = "628138914190";
+
+        function checkArea() {
+            const select = document.getElementById('area-select');
+            const area = select.value;
             
-            // Set 'Beranda' aktif saat inisialisasi jika tidak ada yang lain yang aktif
-            // Ini memastikan ada link yang aktif saat halaman dimuat
-            const initialLink = document.querySelector('.nav-link[data-section="banner"]');
-            if (initialLink) {
-                initialLink.classList.add('active');
+            if (!area) {
+                alert("Silakan pilih kecamatan terlebih dahulu, Kang.");
+                return;
             }
 
-        });
-    </script>
+            const message = `Halo mimin, saya apakah area ${area} sudah bisa melakukan pemasangan?`;
+            const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
 
+        function orderPackage(packageName) {
+            const message = `Halo mimin, saya ingin berlangganan paket ${packageName}, mohon info lebih lanjut`;
+            const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // --- 3. Navbar Scroll Spy & Mobile Menu ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Toggle Mobile Menu
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Scroll Spy Logic
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            // Navbar background change
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // --- 4. Hero Text Carousel (Simple) ---
+        const heroCarousel = document.getElementById('hero-carousel');
+        let heroIndex = 0;
+        setInterval(() => {
+            heroIndex = (heroIndex + 1) % 3;
+            heroCarousel.style.transform = `translateY(-${heroIndex * 33.33}%)`;
+        }, 3000); // Change every 3 seconds
+
+        // --- 5. Testimonial Carousel Logic ---
+        let currentSlide = 0;
+        const slider = document.getElementById('testimonial-slider');
+        const slides = slider.children.length;
+
+        function updateSlide() {
+            const percent = currentSlide * 100;
+            slider.style.transform = `translateX(-${percent}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides) % slides;
+            updateSlide();
+        }
+        
+        // Auto slide testimonials
+        setInterval(nextSlide, 5000);
+
+    </script>
 </body>
 </html>
