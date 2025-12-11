@@ -128,7 +128,7 @@
 
                 <!-- Text Carousel -->
                 <div class="h-16 overflow-hidden relative">
-                    <div id="hero-carousel" class="transition-transform gap-4 duration-500 ease-in-out">
+                    <div id="hero-carousel" class="flex flex-col gap-4 transition-transform duration-500 ease-in-out">
                         <p class="text-xl md:text-2xl text-gray-300">Internet Cepat Untuk Keluarga</p>
                         <p class="text-xl md:text-2xl text-gray-300">Stabil Untuk Gaming & Streaming</p>
                         <p class="text-xl md:text-2xl text-gray-300">Solusi Bisnis & UMKM</p>
@@ -669,7 +669,7 @@
         let heroIndex = 0;
         setInterval(() => {
             heroIndex = (heroIndex + 1) % 3;
-            heroCarousel.style.transform = `translateX(-${heroIndex * 33.33}%)`;
+            heroCarousel.style.transform = `translateY(-${heroIndex * 33.33}%)`;
         }, 3000); // Change every 3 seconds
 
         // --- 5. Testimonial Carousel Logic ---
